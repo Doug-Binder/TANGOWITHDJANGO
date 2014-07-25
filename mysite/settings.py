@@ -16,6 +16,8 @@ PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates');
 
+STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -65,6 +67,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+DATABASE_PATH = os.path.join(PROJECT_PATH, 'rango.db')
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -83,9 +86,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = {
     TEMPLATE_PATH,
 
 }
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    STATIC_PATH,
+
+)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
+
+
+
+
+
+
+
